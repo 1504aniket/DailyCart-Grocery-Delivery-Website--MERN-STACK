@@ -50,13 +50,8 @@ export const AppcontextProvider=({children})=>{
         }
       
         // 2. Fallback: Check localStorage (for UI only)
-        const savedUser = localStorage.getItem('user');
-        if (savedUser) {
-          setuser(JSON.parse(savedUser)); // Show UI as logged in
-          toast.error("Session expired. Please log in again.");
-        } else {
-          setuser(null);
-        }
+        
+        
       };
 
     // fetch seller status 
