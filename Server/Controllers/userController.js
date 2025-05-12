@@ -97,6 +97,7 @@ export const logout=async(req,res)=>{
         httponly:true,
         secure:true,
         sameSite:'none',
+        path:'/',
     })
     return res.json({success:true,message:"logged out"})
 }catch(err){
