@@ -31,11 +31,13 @@ export const AppcontextProvider=({children})=>{
     const fetchuser = async () => {
         try {
           // 1. Check auth via cookies (primary)
+          if(!isLoggingOut){
           const { data } = await axios.get('/api/user/is-auth');
           if (data.success) {
             setuser(data.user);
             localStorage.setItem('user', JSON.stringify(data.user)); // Sync to localStorage
             return;
+          }
           }
         } catch (error) {
           console.error('Cookie auth failed:', error);

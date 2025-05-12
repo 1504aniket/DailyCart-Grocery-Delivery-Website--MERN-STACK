@@ -22,6 +22,7 @@ const Navbar = () => {
                 setcartitem({});
                 localStorage.removeItem('user');        // ✅ clear localStorage
                 localStorage.removeItem('cartitem');  
+                setIsLoggingOut(false);
                 // ✅ clear localStorage
                 navigate('/');
 
