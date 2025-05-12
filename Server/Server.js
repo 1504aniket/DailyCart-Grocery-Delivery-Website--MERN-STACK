@@ -20,7 +20,7 @@ await connectCloudinary()
 const allowedorigins=['https://localhost:5173','https://dailycartfrontend.vercel.app',  /\.vercel\.app$/ ]
 
 
-app.post('/stripe',express.raw({type:'application/json'}),stripewebhooks)
+
 
 
 // Middleware configs
@@ -39,6 +39,7 @@ app.use(cors({
     },
     credentials: true
   }));
+  app.post('/stripe',express.raw({type:'application/json'}),stripewebhooks)
   
 
 

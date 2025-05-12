@@ -8,7 +8,9 @@ const MyOrders = () => {
 
     const fetchmyorder=async()=>{
       try{
-        const {data}=await axios.get(`/api/order/user?userId=${user._id}`);
+        const {data}=await axios.get(`/api/order/user`, {
+            withCredentials: true
+          });
         if(data.success){
             setmyorders(data.orders)
         }

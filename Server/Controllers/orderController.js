@@ -7,7 +7,7 @@ import Stripe from "stripe";
 // place order :cod:/api/order/cod 
 export const placeOrderCOD = async (req, res) => {
     try {
-        const { userId, items, address } = req.body;
+        const { userId, items, address } = req.bod;
         if (!address || items.length === 0) {
             return res.json({ success: false, message: 'Invalid data' });
         }

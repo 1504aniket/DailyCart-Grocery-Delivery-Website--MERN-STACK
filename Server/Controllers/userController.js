@@ -19,8 +19,8 @@ const user=await User.create({name,email,password:hashedPassword})
 const token=jwt.sign({id:user._id},process.env.JWT_SECRET,{expiresIn:'5d'});
 res.cookie('token',token,{
     httponly:true,
-    secure:false,
-    sameSite:'lax'
+    secure:true,
+    sameSite:'none'
     ,
     maxAge:5*24*60*60*1000,  
 })
@@ -55,7 +55,7 @@ export const login=async(req,res)=>{
 res.cookie('token',token,{
     httponly:true,
     secure:process.env.NODE_ENV==='production',
-    sameSite:process.env.NODE_ENV==='production'?'none':'strict',
+    sameSite:process.env.NODE_ENV==='production'?'none':'lax',
     maxAge:5*24*60*60*1000,  
 })
 
