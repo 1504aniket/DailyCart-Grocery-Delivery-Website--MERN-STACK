@@ -17,7 +17,7 @@ await connectDB()
 await connectCloudinary()
 
 // Allow multiple origins
-const allowedorigins=['http://localhost:5173']
+const allowedorigins=['https://localhost:5173','https://dailycartfrontend.vercel.app']
 
 
 app.post('/stripe',express.raw({type:'application/json'}),stripewebhooks)
