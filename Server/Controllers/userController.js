@@ -54,8 +54,8 @@ export const login=async(req,res)=>{
         const token=jwt.sign({id:user._id},process.env.JWT_SECRET,{expiresIn:'5d'});
 res.cookie('token',token,{
     httponly:true,
-    secure:process.env.NODE_ENV==='production',
-    sameSite:process.env.NODE_ENV==='production'?'none':'lax',
+    secure:true,
+    sameSite:'none',
     maxAge:5*24*60*60*1000,  
 })
 
