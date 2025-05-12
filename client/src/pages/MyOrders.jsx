@@ -8,7 +8,7 @@ const MyOrders = () => {
 
     const fetchmyorder=async()=>{
       try{
-        const {data}=await axios.get(`/api/order/user`, {
+        const { data } = await axios.get(`/api/order/user?userId=${user._id}`, {
             withCredentials: true
           });
         if(data.success){
