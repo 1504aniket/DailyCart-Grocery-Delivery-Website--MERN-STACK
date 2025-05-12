@@ -151,23 +151,35 @@ export const AppcontextProvider=({children})=>{
     
     
     useEffect(() => {
-        if(!isLoggingOut){
-        const savedUser = localStorage.getItem('user');
-        const savedCartItem = localStorage.getItem('cartitem');
-        
-        if (savedUser && savedUser !== "undefined") {
-            setuser(JSON.parse(savedUser));
-        } else {
-            fetchuser(); // Fetch user data from API if not in localStorage
-        }
-    
-        if (savedCartItem && savedCartItem !== "undefined") {
-            setcartitem(JSON.parse(savedCartItem)); // Load cart state from localStorage
-        }
-    }
-        
+        fetchuser(); // Always check auth status from server first
         fetchproducts();
-        fetchseller();
+         fetchseller();
+  
+  // Load cart separately (not tied to auth)
+  const savedCartItem = localStorage.getItem('cartitem');
+  if (savedCartItem && savedCartItem !== "undefined") {
+    setcartitem(JSON.parse(savedCartItem));
+  }
+
+
+
+        // if(!isLoggingOut){
+        // const savedUser = localStorage.getItem('user');
+        // const savedCartItem = localStorage.getItem('cartitem');
+        
+        // if (savedUser && savedUser !== "undefined") {
+        //     setuser(JSON.parse(savedUser));
+        // } else {
+        //     fetchuser(); // Fetch user data from API if not in localStorage
+        // }
+    
+        // if (savedCartItem && savedCartItem !== "undefined") {
+        //     setcartitem(JSON.parse(savedCartItem)); // Load cart state from localStorage
+        // }
+    // }
+        
+        // fetchproducts();
+        // fetchseller();
     }, []);
     
     useEffect(() => {
