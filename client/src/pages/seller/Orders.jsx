@@ -1,6 +1,7 @@
 import React, {useState ,useEffect } from 'react'
 import { useAppcontext } from '../../context/Appcontext'
 import { assets, dummyAddress, dummyOrders } from '../../assets/assets';
+import { toast } from 'react-hot-toast';
 
 const Orders = () => {
     const {CURRENCY,axios}=useAppcontext();
