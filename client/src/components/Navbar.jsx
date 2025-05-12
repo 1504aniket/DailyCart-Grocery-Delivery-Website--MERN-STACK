@@ -22,15 +22,16 @@ const Navbar = () => {
                 setcartitem({});
                 localStorage.removeItem('user');        // ✅ clear localStorage
                 localStorage.removeItem('cartitem');  
-                setIsLoggingOut(false);
+             
                 // ✅ clear localStorage
                 navigate('/');
 
-            } else {
-                toast.error(data.message);
-            }
+            } 
         } catch (error) {
             toast.error(error.message);
+        }
+        finally{
+            setIsLoggingOut(false);
         }
     };
     
