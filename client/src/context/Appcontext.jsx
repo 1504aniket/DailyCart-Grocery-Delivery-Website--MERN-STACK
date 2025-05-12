@@ -146,6 +146,7 @@ export const AppcontextProvider=({children})=>{
     
     
     useEffect(() => {
+        if(isLoggingOut)return;
         fetchuser(); // Always check auth status from server first
         fetchproducts();
          fetchseller();
