@@ -28,22 +28,28 @@ export const AppcontextProvider=({children})=>{
     // fetch user status 
 
     // After successful login, save user to localStorage
-const fetchuser = async () => {
-    try {
-        const { data } = await axios.get('/api/user/is-auth');
-        if (data.success) {
+    const fetchuser = async () => {
+        try {
+          // 1. Check auth via cookies (primary)
+          const { data } = await axios.get('/api/user/is-auth');
+          if (data.success) {
             setuser(data.user);
-            setcartitem(data.user.cartitem);
-            localStorage.setItem('user', JSON.stringify(data.user)); // Save user to localStorage
-            localStorage.setItem('cartitem', JSON.stringify(data.user.cartitem)); // Save cartitem to localStorage
+            localStorage.setItem('user', JSON.stringify(data.user)); // Sync to localStorage
+            return;
+          }
+        } catch (error) {
+          console.error('Cookie auth failed:', error);
         }
-    } catch (error) {
-        setuser(null);
-        localStorage.removeItem('user');
-        localStorage.removeItem('cartitem');
-    }
-};
-
+      
+        // 2. Fallback: Check localStorage (for UI only)
+        const savedUser = localStorage.getItem('user');
+        if (savedUser) {
+          setuser(JSON.parse(savedUser)); // Show UI as logged in
+          toast.error("Session expired. Please log in again.");
+        } else {
+          setuser(null);
+        }
+      };
 
     // fetch seller status 
     const fetchseller=async()=>{

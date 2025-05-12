@@ -17,7 +17,7 @@ await connectDB()
 await connectCloudinary()
 
 // Allow multiple origins
-const allowedorigins=['https://localhost:5173','https://dailycartfrontend.vercel.app']
+const allowedorigins=['https://localhost:5173','https://dailycartfrontend.vercel.app',  /\.vercel\.app$/ ]
 
 
 app.post('/stripe',express.raw({type:'application/json'}),stripewebhooks)
@@ -29,10 +29,12 @@ app.use(cookieParser());
 // app.use(cors({origin:allowedorigins,credentials:true}))
 app.use(cors({
     origin: function (origin, callback) {
-      if (!origin || allowedorigins.includes(origin)) {
+      if (!origin || allowedOrigins.some(o =>
+        typeof o === 'string' ? o === origin : o.test(origin)
+      )) {
         callback(null, true);
       } else {
-        callback(new Error("Not allowed by CORS"));
+        callback(new Error("Not allowed by CORS: " + origin));
       }
     },
     credentials: true
