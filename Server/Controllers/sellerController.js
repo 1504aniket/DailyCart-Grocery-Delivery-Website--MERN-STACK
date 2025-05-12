@@ -26,7 +26,10 @@ export const isSellerAuth=async(req,res)=>{
     try{
         
         
-        return res.json({success:true})
+        if (!req.seller) throw new Error("Not authenticated as seller");
+        
+        // 2. Return actual auth status
+        res.json({ success: true });
     }catch(err){
         console.log(err.message)
         res.json({success:false,message:err.message})
