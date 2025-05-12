@@ -7,8 +7,8 @@ export const sellerLogin=async(req,res)=>{
 
         res.cookie('sellertoken',token,{
             httponly:true,
-            secure:process.env.NODE_ENV==='production',
-            sameSite:process.env.NODE_ENV==='production'?'none':'strict',
+            secure:true,
+            sameSite:'none',
             maxAge:5*24*60*60*1000,  
         })
 
