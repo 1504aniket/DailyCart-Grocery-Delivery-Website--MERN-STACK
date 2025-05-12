@@ -29,7 +29,7 @@ app.use(cookieParser());
 // app.use(cors({origin:allowedorigins,credentials:true}))
 app.use(cors({
     origin: function (origin, callback) {
-      if (!origin || allowedOrigins.some(o =>
+      if (!origin || allowedorigins.some(o =>
         typeof o === 'string' ? o === origin : o.test(origin)
       )) {
         callback(null, true);
