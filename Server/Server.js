@@ -17,7 +17,7 @@ await connectDB()
 await connectCloudinary()
 
 // Allow multiple origins
-const allowedorigins=['https://localhost:5173','https://dailycartfrontend.vercel.app',  /\.vercel\.app$/ ]
+const allowedorigins=['https://localhost:5173','https://dailycartfrontend.vercel.app' ]
 
 
 
