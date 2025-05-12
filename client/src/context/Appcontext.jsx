@@ -153,7 +153,7 @@ export const AppcontextProvider=({children})=>{
     
     
     useEffect(() => {
-        if(isLoggingOut)return ;
+        if(!isLoggingOut){
         const savedUser = localStorage.getItem('user');
         const savedCartItem = localStorage.getItem('cartitem');
         
@@ -166,10 +166,11 @@ export const AppcontextProvider=({children})=>{
         if (savedCartItem && savedCartItem !== "undefined") {
             setcartitem(JSON.parse(savedCartItem)); // Load cart state from localStorage
         }
+    }
         
         fetchproducts();
         fetchseller();
-    }, []);
+    }, [isLoggingOut]);
     
     useEffect(() => {
         if (!user) return;
