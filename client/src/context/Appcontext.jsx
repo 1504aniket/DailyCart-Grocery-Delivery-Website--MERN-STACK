@@ -176,7 +176,7 @@ export const AppcontextProvider=({children})=>{
         
         // fetchproducts();
         // fetchseller();
-    }, [isLoggingOut]);
+    }, []);
     
     useEffect(() => {
         if (!user) return;
