@@ -24,14 +24,18 @@ const Navbar = () => {
                 localStorage.removeItem('cartitem');  
              
                 // ✅ clear localStorage
-                navigate('/');
+                navigate('/',{replace:true});
 
             } 
         } catch (error) {
             toast.error(error.message);
         }
         finally{
-            setIsLoggingOut(false);
+            setTimeout(() => {
+                setIsLoggingOut(false);
+                
+            }, 500);
+            
         }
     };
     
