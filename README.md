@@ -37,8 +37,7 @@
 
 | Frontend | Backend | Database | Authentication | Other |
 |----------|---------|----------|----------------|-------|
-| React.js | Node.js | MongoDB  | JWT, Bcrypt     | Redux, Axios, Express, Mongoose, Stripe/PayPal |
+| React.js | Node.js | MongoDB  | JWT, Bcrypt     | Redux, Axios, Express, Mongoose, Stripe |
 
 ---
 
-## 🏗️ Project Structure
