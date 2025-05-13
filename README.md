@@ -2,6 +2,8 @@
 
 **DailyCart** is a full-featured, responsive, and dynamic e-commerce platform built with the **MERN stack** (MongoDB, Express, React, Node.js). It provides users with a seamless shopping experience, while giving admins powerful tools to manage products, users, and orders.
 
+🌐 **Live Demo:** [https://dailycartfrontend.vercel.app/](https://dailycartfrontend.vercel.app/)
+
 ![DailyCart Preview](client/public/dailycart.png) 
 
 ---
